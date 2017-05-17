@@ -128,6 +128,7 @@ public class MultipleController extends BaseController{
 	@RequestMapping(value="/testOutOfMemory",method=RequestMethod.GET)
 	public Object testOutOfMemory(){
 		try {
+			//test-for-commit-git
 			multipleService.outOfMemory();
 		} catch (Exception e) {
 			return responseFail(e.getMessage());
