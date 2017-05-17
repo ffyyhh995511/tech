@@ -1,0 +1,2 @@
+生成代码（到thrift-0.9.3.exe所在的目录执行 ）
+thrift-0.9.3 -gen java Hello.thrift
