@@ -10,6 +10,9 @@ import org.apache.log4j.Logger;
 
 /**
  * java aes 128 ecb 模式
+ * 
+ * 1：原生的AES加密是字节数组
+ * 2：封装为支持数组和字符串加密，字符串通base64做一次编码转换为数组
  * @author fangyunhe
  *
  */
