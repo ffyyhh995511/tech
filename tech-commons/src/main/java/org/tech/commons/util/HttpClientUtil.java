@@ -32,6 +32,8 @@ import org.apache.http.util.EntityUtils;
 
 /**
  * http 工具类
+ * 支持http和hppts
+ * 抽象了post、get方式,很方便业务直接使用和变动修改
  * 
  * @author fangyunhe
  *
