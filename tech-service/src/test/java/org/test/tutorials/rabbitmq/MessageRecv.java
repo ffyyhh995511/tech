@@ -23,7 +23,7 @@ public class MessageRecv {
           throws IOException {
         String message = new String(body, "UTF-8");
         //对象转JSON串  
-        Message msg = (Message) JSON.parse(message);
+        Message msg = JSON.parseObject(message, Message.class);
         System.out.println(" [x] Received Object'" + msg.getName()+", "+msg.getAddress() + "'");
         System.out.println(" [x] Received '" + message + "'");
       }
