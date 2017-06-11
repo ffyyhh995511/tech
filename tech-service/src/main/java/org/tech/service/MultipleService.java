@@ -2,6 +2,8 @@ package org.tech.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.concurrent.TimeUnit;
 
 import javax.annotation.Resource;
@@ -157,10 +159,16 @@ public class MultipleService extends BaseService{
 	 * 测试内存异常
 	 */
 	public void outOfMemory(){
-		List list = new ArrayList<People>();
+		List<People> list = new ArrayList<People>();
+		Map<Integer, Integer> map = new TreeMap<Integer, Integer>();
+		int index  = 0;
 		while(true){
-			list.add(peopleMapper.queryAll());
+			System.out.println("index:"+index);
+			list.addAll(peopleMapper.queryAll());
+			map.put(index,index);
+			index ++;
 		}
+		
 	} 
 	
 	

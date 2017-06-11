@@ -15,8 +15,7 @@ public class Recv {
 		System.out.print("----------main method is begin----------");
 		ConnectionFactory factory = new ConnectionFactory();
 		System.out.println("----------factory successful!----------");
-		factory.setHost("192.168.11.178");
-		factory.setPort(5672);
+		factory.setHost("127.0.0.1");
 //		factory.setUsername("mq");
 //		factory.setPassword("mq");
 		Connection connection = factory.newConnection();

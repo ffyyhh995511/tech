@@ -16,7 +16,7 @@ public class Send {
 		ConnectionFactory factory = new ConnectionFactory();
 		System.out.println("----------factory successful!----------");
 		// 设置IP,端口,账户和密码
-		factory.setHost("192.168.11.178");
+		factory.setHost("127.0.0.1");
 		factory.setPort(5672);
 //		factory.setUsername("mq");
 //		factory.setPassword("mq");
