@@ -26,7 +26,6 @@ import redis.clients.jedis.Jedis;
 @Service
 public class MultipleService extends BaseService{
 	
-	
 	@Resource
 	private ThriftService thriftService;
 	

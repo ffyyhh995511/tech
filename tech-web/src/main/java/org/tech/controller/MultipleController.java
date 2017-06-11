@@ -123,7 +123,6 @@ public class MultipleController extends BaseController{
 		return responseFail(null);
 	}
 	
-	
 	@ResponseBody
 	@RequestMapping(value="/testOutOfMemory",method=RequestMethod.GET)
 	public Object testOutOfMemory(){
