@@ -26,7 +26,7 @@ public class PrintLogController extends BaseController{
 		try {
 			printLogService.echoErrorLog(false);
 		} catch (Exception e) {
-			logger.error(e);
+			logger.error("这里报错了",e);
 		}
 		return responseSuccess("test",new Date());
 	}
