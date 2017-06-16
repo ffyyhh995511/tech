@@ -8,7 +8,7 @@
 		<artifactId>tech</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	
+
 	<artifactId>tech-web</artifactId>
 	<packaging>war</packaging>
 	<name>tech-web Maven Webapp</name>
@@ -21,14 +21,14 @@
 			<artifactId>tech-service</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		
+
 		<!-- tech-web依赖tech-domain -->
 		<dependency>
 			<groupId>org.fyh</groupId>
 			<artifactId>tech-domain</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		
+
 		<!-- tech-web依赖tech-commons -->
 		<dependency>
 			<groupId>org.fyh</groupId>
@@ -37,7 +37,100 @@
 		</dependency>
 
 	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>test</id>
+			<properties>
+				<env>test</env>
+			</properties>
+		</profile>
+		<profile>
+			<id>product</id>
+			<properties>
+				<env>product</env>
+			</properties>
+		</profile>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<env>dev</env>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+	</profiles>
+
 	<build>
+		<defaultGoal>compile</defaultGoal>
 		<finalName>tech-web</finalName>
+		
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                    </archive>
+                    <warName>tech-web</warName>
+                    <!-- <webResources>
+                        <resource>
+                            <directory>src/main/resources/${env}</directory>
+                            <targetPath>src/main/resources</targetPath>
+                            <filtering>true</filtering>
+                        </resource>
+                        <resource>
+                            <directory>src/main/java</directory>
+                            <targetPath>src/main/java</targetPath>
+                            <filtering>true</filtering>
+                        </resource>
+                    </webResources> -->
+                </configuration>
+            </plugin>
+            
+		</plugins>
+		
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<excludes>
+					<exclude>dev/*</exclude>
+					<exclude>product/*</exclude>
+					<exclude>test/*</exclude>
+				</excludes>
+			</resource>
+
+			<resource>
+				<directory>src/main/resources/${env}</directory>
+				<includes>
+					<include>*.*</include>
+				</includes>
+			</resource>
+
+			<!-- <resource>
+				<directory>src/main/resources/public</directory>
+				<includes>
+					<include>*</include>
+					<include>*.*</include>
+				</includes>
+			</resource> -->
+			
+			
+		</resources>
 	</build>
 </project>

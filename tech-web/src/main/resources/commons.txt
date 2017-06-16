@@ -1,2 +1,9 @@
 执行如下命令可通过表生成domain、dao
 java -jar mybatis-generator-core-1.3.3.jar -configfile generator.xml -overwrite
+
+maven 打war包注意事项
+1：每个module的JRE System Library 要配置成JDK，记住是JDK  [window -> installed Jres -> 选择本地配置的 JDK]不然会提示报错
+2：每个模块要install为一个jar文件，dao的mybatis.xml 文件打jar包会漏掉配置文件，已在dao模块的build 配置resource
+3：web 模块 设置各个环境的profile。具体配置看web模块的pom.xml文件
+4：通过clean install -P dev(各个模块) 就可以打出对应的war文件
+5：通过jetty运行web系统，具体不知道如何运行指定的profile，摸索出是先clean install -P dev对应的包，然后run as jetty 就可以了

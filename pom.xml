@@ -103,13 +103,6 @@
 			<artifactId>druid</artifactId>
 			<version>1.0.12</version>
 		</dependency>
-		<!-- 添加junit单元测试包 -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
 		<dependency>
