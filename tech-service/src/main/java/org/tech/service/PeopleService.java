@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
 import org.tech.commons.OpenPage;
 import org.tech.commons.util.UUIDUtil;
@@ -17,6 +19,8 @@ import com.github.pagehelper.PageHelper;
 
 @Service
 public class PeopleService extends BaseService{
+	protected final Log logger = LogFactory.getLog(getClass());
+	
 	@Resource
 	private PeopleMapper peopleMapper;
 	
@@ -43,6 +47,18 @@ public class PeopleService extends BaseService{
 	    Page p = ((Page) list);
 	    
 	    return OpenPage.buildPage(p);
+	}
+	
+	/**
+	 * 结合controller测试mvc 三个层是否都是同一个thread在处理
+	 * @param people
+	 * @return
+	 */
+	public Integer addByTestOneThread(People people){
+		logger.info("service thread name:"+Thread.currentThread().getName());
+		logger.info("service thread id:"+Thread.currentThread().getId());
+		people.setId(UUIDUtil.getUUID());
+		return peopleMapper.insert(people);
 	}
 	
 	
