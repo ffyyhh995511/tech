@@ -2,7 +2,7 @@
 /target/
 .settings/
 target/
-  
+/WebContent  
 # built application files  
 *.apk  
 *.ap_  
