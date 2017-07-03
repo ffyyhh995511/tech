@@ -3,7 +3,7 @@
 <generatorConfiguration>
 	<!-- 数据库驱动包位置 -->
 	<classPathEntry
-		location="C:\Users\Administrator\.m2\repository\mysql\mysql-connector-java\5.1.34\mysql-connector-java-5.1.34.jar" />
+		location="D:\apache-maven-3.5.0\repository\mysql\mysql-connector-java\5.1.34\mysql-connector-java-5.1.34.jar" />
 		<!-- <classPathEntry location="C:\oracle\product\10.2.0\db_1\jdbc\lib\ojdbc14.jar" /> -->
 		
 		<context id="DB2Tables" targetRuntime="MyBatis3">
@@ -21,20 +21,20 @@
 		
 		<!-- 生成实体类的包名和位置，这里配置将生成的实体类放在me.gacl.domain这个包下 -->
 		<javaModelGenerator targetPackage="org.tech.domain"
-			targetProject="C:\Users\Administrator\workspace6\tech\tech-domain\src\main\java">
+			targetProject="D:\eclipse-jee-neon-3-win32-x86_64\workspace1\tech\tech-domain\src\main\java">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 		
 		<!-- 生成的SQL映射文件包名和位置，这里配置将生成的SQL映射文件放在me.gacl.mapping这个包下 -->
 		<sqlMapGenerator targetPackage="org.tech.mapping"
-			targetProject="C:\Users\Administrator\workspace6\tech\tech-dao\src\main\java">
+			targetProject="D:\eclipse-jee-neon-3-win32-x86_64\workspace1\tech\tech-dao\src\main\java">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 		
 		<!-- 生成DAO的包名和位置，这里配置将生成的dao类放在me.gacl.dao这个包下 -->
 		<javaClientGenerator type="XMLMAPPER" targetPackage="org.tech.dao" 
-			targetProject="C:\Users\Administrator\workspace6\tech\tech-dao\src\main\java">
+			targetProject="D:\eclipse-jee-neon-3-win32-x86_64\workspace1\tech\tech-dao\src\main\java">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 		
@@ -48,10 +48,15 @@
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false" /> -->	
 			
-		<table tableName="distributedIncrease" domainObjectName="DistributedIncrease"
+		<!-- <table tableName="distributedIncrease" domainObjectName="DistributedIncrease"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
-			selectByExampleQueryId="false" />			
+			selectByExampleQueryId="false" /> -->			
+			
+		<table tableName="bin_file" domainObjectName="BinFile"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false" />	
 			
 			
 	</context>
