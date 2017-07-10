@@ -1,8 +1,54 @@
 <web-app>
-  
-  <filter>
+	<!--druid监控功能—— filter可以监控webURl 访问 -->
+	<filter>
+		<filter-name>DruidWebStatFilter</filter-name>
+		<filter-class>com.alibaba.druid.support.http.WebStatFilter
+		</filter-class>
+		<init-param>
+			<param-name>exclusions</param-name>
+			<param-value>*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*
+			</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>DruidWebStatFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- 该配置可以访问监控界面，配置好后，访问http://ip地址:端口号/项目名/druid/index.html即可监控数据库访问性能 -->
+	<!-- 数据库监控 start -->
+	<servlet>
+		<servlet-name>DruidStatView</servlet-name>
+		<!-- 展示监控页面的servlet -->
+		<servlet-class>com.alibaba.druid.support.http.StatViewServlet
+		</servlet-class>
+		<init-param>
+			<param-name>profileEnable</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>resetEnable</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<!-- 可选项 登陆的用户名和密码 -->
+		<init-param>
+			<param-name>loginUsername</param-name>
+			<param-value>druid</param-value>
+		</init-param>
+		<init-param>
+			<param-name>loginPassword</param-name>
+			<param-value>druid</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DruidStatView</servlet-name>
+		<url-pattern>/druid/*</url-pattern>
+	</servlet-mapping>
+
+	<filter>
 		<filter-name>encodingFilter</filter-name>
-		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
 		<init-param>
 			<param-name>encoding</param-name>
 			<param-value>UTF-8</param-value>
@@ -24,20 +70,23 @@
 
 	<listener>
 		<description>Spring监听器</description>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+		<listener-class>org.springframework.web.context.ContextLoaderListener
+		</listener-class>
 	</listener>
-	
+
 
 	<!-- ContextLoaderListener初始化Spring上下文时需要使用到的contextConfigLocation参数 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<!-- 配置spring.xml和spring-mybatis.xml这两个配置文件的位置，固定写法 -->
-		<param-value>classpath:spring.xml,classpath:spring-mybatis.xml</param-value>
+		<param-value>classpath:spring.xml,classpath:spring-mybatis.xml
+		</param-value>
 	</context-param>
 
 	<servlet>
 		<servlet-name>mvc</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>classpath:spring-mvc-servlet.xml</param-value>
@@ -48,5 +97,5 @@
 		<servlet-name>mvc</servlet-name>
 		<url-pattern>*.action</url-pattern>
 	</servlet-mapping>
-  
+
 </web-app>

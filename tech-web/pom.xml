@@ -40,21 +40,21 @@
 
 	<profiles>
 		<profile>
-			<id>test</id>
+			<id>qa</id>
 			<properties>
-				<env>test</env>
+				<env>qa</env>
 			</properties>
 		</profile>
 		<profile>
-			<id>product</id>
+			<id>prod</id>
 			<properties>
-				<env>product</env>
+				<env>prod</env>
 			</properties>
 		</profile>
 		<profile>
-			<id>dev</id>
+			<id>local</id>
 			<properties>
-				<env>dev</env>
+				<env>local</env>
 			</properties>
 			<activation>
 				<activeByDefault>true</activeByDefault>
@@ -109,9 +109,9 @@
 				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
 				<excludes>
-					<exclude>dev/*</exclude>
-					<exclude>product/*</exclude>
-					<exclude>test/*</exclude>
+					<exclude>local/*</exclude>
+					<exclude>prod/*</exclude>
+					<exclude>qa/*</exclude>
 				</excludes>
 			</resource>
 
