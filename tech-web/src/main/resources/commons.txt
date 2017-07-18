@@ -7,3 +7,7 @@ maven 打war包注意事项
 3：web 模块 设置各个环境的profile。具体配置看web模块的pom.xml文件
 4：通过clean install -P dev(各个模块) 就可以打出对应的war文件
 5：通过jetty运行web系统，具体不知道如何运行指定的profile，摸索出是先clean install -P dev对应的包，然后run as jetty 就可以了
+6:maven 打包遇到的坑
+clean install -Dmaven.test.skip=true -Pprod
+clean package -Dmaven.test.skip=true -Pprod
+install是打出被依赖的包放到maven仓库里面，package是打出要运行的包，工具有时打不了包要通过cmd命令行执行
