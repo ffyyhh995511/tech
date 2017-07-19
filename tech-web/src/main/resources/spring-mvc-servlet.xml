@@ -9,6 +9,8 @@
            http://www.springframework.org/schema/context   
            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
            
+    <!-- 进行静态资源的访问 避免dispatcherServlet对/拦截导致找不到静态资源404问题-->
+    <mvc:resources mapping="/static/**" location="/static/"/>
            
 	<!-- 自动扫描me.gacl.web 包下的@Controller标注的类控制器类 -->
 	<context:component-scan base-package="org.tech.controller" />
