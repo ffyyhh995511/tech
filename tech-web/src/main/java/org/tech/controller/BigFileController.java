@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.tech.domain.BinFile;
-import org.tech.service.BigFileService;
+import org.tech.service.impl.BigFileService;
 /**
  * 文件已二进制方式存储
  * @author fangyunhe

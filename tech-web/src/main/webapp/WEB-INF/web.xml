@@ -79,7 +79,7 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<!-- 配置spring.xml和spring-mybatis.xml这两个配置文件的位置，固定写法 -->
-		<param-value>classpath:spring.xml,classpath:spring-mybatis.xml
+		<param-value>classpath:spring.xml,classpath:spring-mybatis.xml,classpath:spring-dubbo-provider.xml
 		</param-value>
 	</context-param>
 

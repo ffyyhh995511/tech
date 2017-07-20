@@ -1,4 +1,4 @@
-package org.tech.service;
+package org.tech.service.impl;
 
 import java.util.List;
 import java.util.Set;

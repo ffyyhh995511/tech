@@ -1,4 +1,4 @@
-package org.tech.service;
+package org.tech.service.impl;
 
 import javax.annotation.Resource;
 

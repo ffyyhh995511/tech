@@ -17,7 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.tech.domain.People;
-import org.tech.service.MultipleService;
+import org.tech.service.impl.MultipleService;
 
 /**
  * 多个功能的测试

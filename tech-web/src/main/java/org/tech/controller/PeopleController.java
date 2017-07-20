@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.tech.commons.OpenPage;
 import org.tech.domain.People;
-import org.tech.service.PeopleService;
+import org.tech.service.impl.PeopleService;
 /**
  * people demo
  * 增删改查 people 表

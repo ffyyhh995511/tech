@@ -12,8 +12,11 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <!-- 4.0.4 以上版本返回json格式较复杂 -->
+    	<!-- 4.0.4 以上版本返回json格式较复杂 -->
 		<spring.version>4.0.4.RELEASE</spring.version>
+		<dubbo.version>2.5.3</dubbo.version>
+		<zookeeper.version>3.3.3</zookeeper.version>
+        <zkclient.version>0.1</zkclient.version>
 		<mybatis.version>3.2.3</mybatis.version>
 		<mybatis-spring.version>1.2.1</mybatis-spring.version>
 		<targetJavaProject>${basedir}/src/main/java</targetJavaProject>
@@ -235,6 +238,22 @@
 		    <artifactId>netty-all</artifactId>
 		    <version>4.1.11.Final</version>
 		</dependency>
+		
+		<dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>${dubbo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.sgroschupf</groupId>
+            <artifactId>zkclient</artifactId>
+            <version>${zkclient.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>${zookeeper.version}</version>
+        </dependency>
 		
 		
 		<!-- 添加junit单元测试包 -->

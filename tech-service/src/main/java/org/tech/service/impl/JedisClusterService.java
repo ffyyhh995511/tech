@@ -1,4 +1,4 @@
-package org.tech.service;
+package org.tech.service.impl;
 
 import java.io.IOException;
 import java.util.HashSet;

@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.tech.commons.util.UUIDUtil;
 import org.tech.domain.People;
-import org.tech.service.PeopleService;
-import org.tech.service.PrintLogService;
+import org.tech.service.impl.PeopleService;
+import org.tech.service.impl.PrintLogService;
 
 @Controller
 @RequestMapping(value="/oneThread")

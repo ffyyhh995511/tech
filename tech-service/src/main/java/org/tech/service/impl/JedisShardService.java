@@ -1,4 +1,4 @@
-package org.tech.service;
+package org.tech.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
