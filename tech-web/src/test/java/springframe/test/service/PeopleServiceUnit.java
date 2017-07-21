@@ -1,4 +1,4 @@
-package springframe.test;
+package springframe.test.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +16,7 @@ import org.tech.service.impl.PeopleService;
 @RunWith(SpringJUnit4ClassRunner.class)
 //配置了@ContextConfiguration注解并使用该注解的locations属性指明spring和配置文件之后，
 @ContextConfiguration(locations = {"classpath:spring.xml", "classpath:spring-mybatis.xml" })
-public class PeopleController {
+public class PeopleServiceUnit {
 	
 	 @Autowired
 	 private PeopleService peopleService;
