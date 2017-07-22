@@ -11,3 +11,9 @@ maven 打war包注意事项
 clean install -Dmaven.test.skip=true -Pprod
 clean package -Dmaven.test.skip=true -Pprod
 install是打出被依赖的包放到maven仓库里面，package是打出要运行的包，工具有时打不了包要通过cmd命令行执行
+可以组合 clean install package 打包（网上有看到，自己还没验证）
+
+7：通过mnv命令把本地的jar文件上传到maven的仓库（将待引入的jar包安装到本地repository中）
+  a:先把待引入的jar包放在一个目录下，需要改一下包名，如fbcds.jar修改成fbcds-1.0.jar，如F:\lib目录，在命令行CD到lib目录，执行以下命令
+  b:mvn install:install-file -Dfile=fbcds-1.0.jar -DgroupId=fbcds -DartifactId=fbcds -Dversion=1.0 -Dpackaging=jar
+  c:到仓库看就有了
