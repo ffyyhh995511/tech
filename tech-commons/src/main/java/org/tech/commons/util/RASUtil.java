@@ -25,6 +25,8 @@ import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
 /**
+ * 用rsa做数据的加解密
+ * 
  * @author fangyunhe 
  * 2017年7月24日下午10:05:05
  */
