@@ -17,7 +17,7 @@ import org.apache.log4j.Logger;
  *
  */
 public class AESUtils {
-	private static final Logger logger = Logger.getLogger(FileUpLoadUtil.class);  
+	private static final Logger logger = Logger.getLogger(AESUtils.class);  
 	/**
 	 * 原生byte数组加密 
 	 * @param sSrc
