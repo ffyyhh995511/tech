@@ -26,6 +26,10 @@ public class BaseController extends HandlerInterceptorAdapter{
 	
 	protected final Log logger = LogFactory.getLog(getClass());
 	
+	public static final int RESPONSE_FAIL = 0;//失败
+	public static final int RESPONSE_SUCC = 1;//成功
+	public static final int RESPONSE_AUTH = 2;//权限
+	
 	private static final ThreadLocal<HttpServletRequest> REQUEST = new ThreadLocal<HttpServletRequest>();
 	private static final ThreadLocal<HttpServletResponse> RESPONSE = new ThreadLocal<HttpServletResponse>();
 
@@ -34,8 +38,8 @@ public class BaseController extends HandlerInterceptorAdapter{
 	 */
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 		throws Exception {
-		REQUEST.set(request);
 		RESPONSE.set(response);
+		REQUEST.set(request);
 		return true;
 	}
 
@@ -85,6 +89,24 @@ public class BaseController extends HandlerInterceptorAdapter{
 		}
 		return null;
 	}
+	
+	/**
+	 * 打印head参数
+	 * @return
+	 */
+	public String getHeadsMap(){
+		Enumeration enu= getRequest().getHeaderNames();
+		Map<String,Object> map = new HashMap<String, Object>();
+		while(enu.hasMoreElements()){
+			String headerName=(String)enu.nextElement();
+			String headerValue=getRequest().getHeader(headerName);//取出头信息内容
+			map.put(headerName, headerValue);
+		}
+		if(map.size() > 0 ){
+			return "heads = " + JSON.toJSONString(map);
+		}
+		return null;
+	}
 
 	
 	/**
@@ -104,7 +126,7 @@ public class BaseController extends HandlerInterceptorAdapter{
 	 */
 	public Map<String, Object> responseParamFail(String msg) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("status", false);
+		map.put("status", RESPONSE_FAIL);
 		if(StringUtils.isBlank(msg)){
 			map.put("msg", "Parameter error");
 		}else{
@@ -121,7 +143,7 @@ public class BaseController extends HandlerInterceptorAdapter{
 	 */
 	public Map<String, Object> responseFail(String msg) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("status", false);
+		map.put("status", RESPONSE_FAIL);
 		map.put("msg", msg);
 		return map;
 	}
@@ -134,9 +156,34 @@ public class BaseController extends HandlerInterceptorAdapter{
 	 */
 	public Map<String, Object> responseSuccess(String msg, Object object) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("status", true);
+		map.put("status", RESPONSE_SUCC);
 		map.put("msg", msg);
 		map.put("data", object);
 		return map;
+	}
+	
+	/**
+	 * 权限相关
+	 * @param msg
+	 * @param object
+	 * @return
+	 */
+	public Map<String, Object> responseAuth(String msg, Object object) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("status", RESPONSE_AUTH);
+		map.put("msg", msg);
+		map.put("data", object);
+		return map;
+	}
+	
+	public Map<String, Object> responseSuccess(String msg) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("status", RESPONSE_SUCC);
+		map.put("msg", msg);
+		return map;
+	}
+	
+	public Map<String, Object> responseSuccess() {
+		return responseSuccess(null, null);
 	}
 }

@@ -37,7 +37,8 @@ public class PeopleController extends BaseController{
 				return responseSuccess("插入成功", null);
 			}
 		} catch (Exception e) {
-			logger.error(e);
+			logger.error("插入不成功",e);
+			logger.error(getParameterMap());
 		}
 		return responseFail("插入不成功");
 	}
@@ -49,10 +50,11 @@ public class PeopleController extends BaseController{
 		try {
 			int res = peopleService.update(people);
 			if(res > 0 ){
-				return responseSuccess("插入成功", null);
+				return responseSuccess("编辑成功", null);
 			}
 		} catch (Exception e) {
-			logger.error(e);
+			logger.error("编辑不成功",e);
+			logger.error(getParameterMap());
 		}
 		return responseFail("编辑不成功");
 	}
@@ -74,7 +76,8 @@ public class PeopleController extends BaseController{
 				return responseSuccess("删除成功", null);
 			}
 		} catch (Exception e) {
-			logger.error(e);
+			logger.error("删除不成功",e);
+			logger.error(getParameterMap());
 		}
 		return responseFail("删除不成功");
 	}
@@ -95,7 +98,8 @@ public class PeopleController extends BaseController{
 			OpenPage page = peopleService.queryPage(pageNum, pageSize);
 			return responseSuccess("成功", page);
 		} catch (Exception e) {
-			logger.error(e);
+			logger.error("查询不成功",e);
+			logger.error(getParameterMap());
 		}
 		return responseFail("查询不成功");
 	}
