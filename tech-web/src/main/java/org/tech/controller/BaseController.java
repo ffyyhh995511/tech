@@ -11,9 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.log4j.Logger;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-import org.tech.commons.util.FileUpLoadUtil;
 
 import com.alibaba.fastjson.JSON;
 /**
