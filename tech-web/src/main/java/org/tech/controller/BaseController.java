@@ -174,6 +174,13 @@ public class BaseController extends HandlerInterceptorAdapter{
 		return map;
 	}
 	
+	public Map<String, Object> responseSuccess(Object object) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("status", RESPONSE_AUTH);
+		map.put("data", object);
+		return map;
+	}
+	
 	public Map<String, Object> responseSuccess(String msg) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("status", RESPONSE_SUCC);

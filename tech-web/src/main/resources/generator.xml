@@ -53,10 +53,20 @@
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false" /> -->			
 			
-		<table tableName="bin_file" domainObjectName="BinFile"
+		<!-- <table tableName="bin_file" domainObjectName="BinFile"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
-			selectByExampleQueryId="false" />	
+			selectByExampleQueryId="false" /> -->
+			
+		<table tableName="student" domainObjectName="Student"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false" />
+			
+		<table tableName="teacher" domainObjectName="Teacher"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false" />			
 			
 			
 	</context>
