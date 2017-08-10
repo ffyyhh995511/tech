@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.tech.commons.enmu.ResponseMsg;
 import org.tech.domain.People;
 import org.tech.service.impl.MultipleService;
 
@@ -186,4 +187,20 @@ public class MultipleController extends BaseController{
         return responseSuccess("test",new Date());
     }
 	
+	/**
+	 * 枚举测试
+	 * 枚举是用了替换public static final 这样的变量
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value="/nemu",method=RequestMethod.GET)
+	public Object nemu(){
+		try {
+			logger.info(ResponseMsg.STATUS200.getCode());
+			logger.info(ResponseMsg.STATUS200.getMsg());
+		} catch (Exception e) {
+			return responseFail(e.getMessage());
+		}
+		return responseSuccess("success", ResponseMsg.STATUS200);
+	}
 }
