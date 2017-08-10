@@ -6,6 +6,28 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
   </resultMap>
+  
+  <!-- 继承 -->
+  <resultMap extends="BaseResultMap" id="BaseResultMapVo" type="org.tech.domain.vo.TeacherVo">
+  		 <!-- 一对一 -->
+  		 <association property="teacherInfo" javaType="org.tech.domain.TeacherInfo">
+             <id property="id" column="ti_id"/>
+             <result property="address" column="ti_address"/>
+             <result property="workYear" column="ti_workYear"/>
+             <result property="favorite" column="ti_favorite"/>
+             <result property="marry" column="ti_marry"/>
+         </association>
+  		 
+  		 <!-- ofType指定students集合中的对象类型 -->
+  		 <!-- 一对多 -->
+         <collection property="students" ofType="org.tech.domain.Student">
+             <id property="id" column="s_id"/>
+             <result property="name" column="s_name"/>
+             <result property="createTime" column="s_create_time"/>
+         </collection>
+  </resultMap>
+  
+  
   <sql id="Base_Column_List">
     id, name, create_time
   </sql>
@@ -75,5 +97,41 @@
     from teacher
     where name = #{name,jdbcType=VARCHAR}
   </select>
+  
+  <insert id="insertBatch" parameterType="java.util.List">
+  	insert into teacher (id, name, create_time) values 
+    <foreach collection="list" index="index" item="item" open="" close="" separator=",">
+    	(#{item.id,jdbcType=VARCHAR}, #{item.name,jdbcType=VARCHAR}, #{item.createTime,jdbcType=TIMESTAMP})
+    </foreach>
+  </insert>
+  
+  
+   <delete id="deleteBatch" parameterType="java.util.List">  
+        delete from teacher where id in
+        <foreach item="item" index="index" collection="array" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>  
+   </delete>
+   
+   
+   <select id="queryDetails" resultMap="BaseResultMapVo">
+   	SELECT 
+   	t.id,
+   	t.name,
+   	t.create_time,
+   	s.id as s_id,
+   	s.name as s_name,
+   	s.create_time as s_create_time,
+   	ti.id as ti_id,
+  	ti.address as ti_address,
+  	ti.work_year as ti_work_year,
+  	ti.favorite as ti_favorite,
+  	ti.marry as ti_marry
+   	from teacher t LEFT JOIN student s on t.id = s.teacher_id
+   	LEFT JOIN teacher_info ti on ti.teacher_id = t.id;
+   </select>  
+  
+  
   
 </mapper>

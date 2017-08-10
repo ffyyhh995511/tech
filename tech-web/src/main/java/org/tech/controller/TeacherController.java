@@ -24,4 +24,21 @@ public class TeacherController extends BaseController{
 		List<Teacher> searchByName = teacherService.searchByName(name);
 		return responseSuccess(searchByName);
 	}
+	
+	@RequestMapping(value="/insertBatch",method=RequestMethod.GET)
+	public Map<String, Object> insertBatch(){
+		return responseSuccess(teacherService.insertBatch());
+	}
+	
+	@RequestMapping(value="/deleteBatch",method=RequestMethod.GET)
+	public Map<String, Object> deleteBatch(String ids){
+		return responseSuccess(teacherService.deleteBatch(ids));
+	}
+	
+	@RequestMapping(value="/queryWithRelevanceDetails",method=RequestMethod.GET)
+	public Map<String, Object> queryWithRelevanceDetails(){
+		return responseSuccess(teacherService.queryWithRelevanceDetails());
+	}
+	
+	
 }

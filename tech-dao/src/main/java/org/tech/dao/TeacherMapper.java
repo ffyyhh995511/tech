@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 import org.tech.domain.Teacher;
+import org.tech.domain.vo.TeacherVo;
 
 public interface TeacherMapper {
     int deleteByPrimaryKey(String id);
@@ -19,4 +20,10 @@ public interface TeacherMapper {
     int updateByPrimaryKey(Teacher record);
 
 	List<Teacher> searchByName(@Param("name")String name);
+
+	int insertBatch(List<Teacher> list);
+
+	int deleteBatch(String array[]);
+
+	List<TeacherVo> queryDetails();
 }

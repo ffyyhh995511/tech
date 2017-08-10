@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.tech.dao.TeacherInfoMapper">
+  <resultMap id="BaseResultMap" type="org.tech.domain.TeacherInfo">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="work_year" jdbcType="INTEGER" property="workYear" />
+    <result column="favorite" jdbcType="VARCHAR" property="favorite" />
+    <result column="marry" jdbcType="VARCHAR" property="marry" />
+    <result column="teacher_id" jdbcType="VARCHAR" property="teacherId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, address, work_year, favorite, marry, teacher_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from teacher_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from teacher_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="org.tech.domain.TeacherInfo">
+    insert into teacher_info (id, address, work_year, 
+      favorite, marry, teacher_id
+      )
+    values (#{id,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{workYear,jdbcType=INTEGER}, 
+      #{favorite,jdbcType=VARCHAR}, #{marry,jdbcType=VARCHAR}, #{teacherId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.tech.domain.TeacherInfo">
+    insert into teacher_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="workYear != null">
+        work_year,
+      </if>
+      <if test="favorite != null">
+        favorite,
+      </if>
+      <if test="marry != null">
+        marry,
+      </if>
+      <if test="teacherId != null">
+        teacher_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="workYear != null">
+        #{workYear,jdbcType=INTEGER},
+      </if>
+      <if test="favorite != null">
+        #{favorite,jdbcType=VARCHAR},
+      </if>
+      <if test="marry != null">
+        #{marry,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherId != null">
+        #{teacherId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.tech.domain.TeacherInfo">
+    update teacher_info
+    <set>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="workYear != null">
+        work_year = #{workYear,jdbcType=INTEGER},
+      </if>
+      <if test="favorite != null">
+        favorite = #{favorite,jdbcType=VARCHAR},
+      </if>
+      <if test="marry != null">
+        marry = #{marry,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherId != null">
+        teacher_id = #{teacherId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.tech.domain.TeacherInfo">
+    update teacher_info
+    set address = #{address,jdbcType=VARCHAR},
+      work_year = #{workYear,jdbcType=INTEGER},
+      favorite = #{favorite,jdbcType=VARCHAR},
+      marry = #{marry,jdbcType=VARCHAR},
+      teacher_id = #{teacherId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
