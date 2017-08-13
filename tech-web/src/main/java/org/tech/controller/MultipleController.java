@@ -199,6 +199,7 @@ public class MultipleController extends BaseController{
 			logger.info(ResponseMsg.STATUS200.getCode());
 			logger.info(ResponseMsg.STATUS200.getMsg());
 		} catch (Exception e) {
+			logger.error(getParameterMap());
 			return responseFail(e.getMessage());
 		}
 		return responseSuccess("success", ResponseMsg.STATUS200);
