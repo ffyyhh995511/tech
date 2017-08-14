@@ -77,6 +77,7 @@ public class PeopleController extends BaseController{
 			}
 		} catch (Exception e) {
 			logger.error("删除不成功",e);
+			logger.error(getHeadsMap());
 			logger.error(getParameterMap());
 		}
 		return responseFail("删除不成功");
