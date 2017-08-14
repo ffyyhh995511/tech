@@ -99,6 +99,7 @@ public class PeopleController extends BaseController{
 			return responseSuccess("成功", page);
 		} catch (Exception e) {
 			logger.error("查询不成功",e);
+			logger.error(getHeadsMap());
 			logger.error(getParameterMap());
 		}
 		return responseFail("查询不成功");
