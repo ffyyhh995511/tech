@@ -19,8 +19,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping(value="/log")
 public class Log4JTestController extends BaseController{
 	
-	
-	
 	@ResponseBody
 	@RequestMapping(value="/log4j",method=RequestMethod.GET)
 	public Object log4j(){
