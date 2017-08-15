@@ -8,15 +8,28 @@ public class RandomCodeUtil {
 			"u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7",
 			"8", "9" };
 	
-	
-	public static String getUniqueCode() {
+	/**
+	 * 指定长度随机数
+	 * @param length
+	 * @return
+	 */
+	public static String getUniqueCode(int length){
 		// Math函数库重的random()方法可以产生0至1的随机数
 		StringBuffer uniqueCode = new StringBuffer();
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < length; i++) {
 			int index = (int) (60 * Math.random());
 			uniqueCode.append(codes[index]);
 		}
 		return uniqueCode.toString();
+	
+	}
+	
+	/**
+	 * 默认是10长度随机数
+	 * @return
+	 */
+	public static String getUniqueCode() {
+		return getUniqueCode(10);
 	}
 	
 }
