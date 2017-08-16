@@ -191,4 +191,19 @@ public class BaseController extends HandlerInterceptorAdapter{
 	public Map<String, Object> responseSuccess() {
 		return responseSuccess(null, null);
 	}
+	
+	/**
+	 * 校验参数是否null
+	 * @param object
+	 * @param parms
+	 * @return
+	 */
+	public boolean isParamsNull(Object ...object){
+		for (Object obj : object) {
+			if(obj == null){
+				return false;
+			}
+		}
+		return true;
+	}
 }
