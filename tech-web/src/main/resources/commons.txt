@@ -17,3 +17,5 @@ install是打出被依赖的包放到maven仓库里面，package是打出要运�
   a:先把待引入的jar包放在一个目录下，需要改一下包名，如fbcds.jar修改成fbcds-1.0.jar，如F:\lib目录，在命令行CD到lib目录，执行以下命令
   b:mvn install:install-file -Dfile=fbcds-1.0.jar -DgroupId=fbcds -DartifactId=fbcds -Dversion=1.0 -Dpackaging=jar
   c:到仓库看就有了
+
+  
