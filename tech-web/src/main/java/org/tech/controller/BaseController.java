@@ -93,7 +93,7 @@ public class BaseController extends HandlerInterceptorAdapter{
 	 * @return
 	 */
 	public String getHeadsMap(){
-		Enumeration enu= getRequest().getHeaderNames();
+		Enumeration<String> enu= getRequest().getHeaderNames();
 		Map<String,Object> map = new HashMap<String, Object>();
 		while(enu.hasMoreElements()){
 			String headerName=(String)enu.nextElement();
