@@ -75,7 +75,7 @@ public class BaseController extends HandlerInterceptorAdapter{
 	 * @return
 	 */
 	public String getParameterMap(){
-		Enumeration enu= getRequest().getParameterNames();
+		Enumeration<String> enu= getRequest().getParameterNames();
 		Map<String,Object> map = new HashMap<String, Object>();
 		while(enu.hasMoreElements()){
 			String key = (String) enu.nextElement();
