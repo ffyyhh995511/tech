@@ -31,8 +31,8 @@ public class RSAService {
 	
 	@PostConstruct
 	public void init() throws Exception{
-		PUBLIC_KEY = readFileByPath(this.getClass().getResource("/rsa.pub").getPath());
-		PRIVATE_KEY = readFileByPath(this.getClass().getResource("/rsa.pri").getPath());
+		PUBLIC_KEY = readFileByPath(this.getClass().getResource("/rsa/rsa.pub").getPath());
+		PRIVATE_KEY = readFileByPath(this.getClass().getResource("/rsa/rsa.pri").getPath());
 	}
 	
 	/**

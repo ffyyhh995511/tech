@@ -112,6 +112,8 @@
 					<exclude>local/*</exclude>
 					<exclude>prod/*</exclude>
 					<exclude>qa/*</exclude>
+					<exclude>util/*</exclude>
+					<exclude>doc/*</exclude>
 				</excludes>
 			</resource>
 
