@@ -24,12 +24,12 @@ public class ChannelGsmMessageCacheBuilder {
 	/**
 	 * 设置执行开始时间(单位毫秒)
 	 */
-	private static final int delay = 0;
+	private static final int DELAY = 0;
 	
 	/**
 	 * 设置间隔执行时间(单位毫秒)
 	 */
-    private static final int period = 1000 * 5;
+    private static final int PERIOD = 1000 * 5;
 	
 	
 	/**
@@ -55,7 +55,7 @@ public class ChannelGsmMessageCacheBuilder {
 					}
 				}
 			}
-        }, delay, period);
+        }, DELAY, PERIOD);
     }
 
 	public static Map<String, GsmMessage> getHandlerMap() {
