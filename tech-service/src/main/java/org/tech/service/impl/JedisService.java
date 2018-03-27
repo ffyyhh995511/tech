@@ -404,6 +404,26 @@ public class JedisService {
 		return rs;
 	}
 	
+	public String setex(String key, int seconds, String value){
+		String rs = null;
+		Jedis jedis = null;
+		JedisPool jedisPool = null;
+		try{
+			jedisPool = getJedisPool();
+			jedis = jedisPool.getResource();
+			if(jedis != null){
+				rs = jedis.setex(key, seconds, value);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			if(jedis != null){
+				jedis.close();
+			}
+		}
+		return rs;
+	}
+	
 	/**
 	 * 批量字符串存储
 	 * @param keysvalues
